@@ -39,10 +39,7 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="flex items-center space-x-4">
-            <div className="hidden md:block space-x-3">
-              <Button variant="ghost" asChild>
-                <Link href="/signin">Sign In</Link>
-              </Button>
+            <div className="hidden md:flex items-center space-x-3">
               <Button asChild>
                 <Link href="/signup">Sign Up</Link>
               </Button>
@@ -75,11 +72,6 @@ export default function Navbar() {
                     ))}
                   </div>
                   <div className="flex flex-col justify-between space-y-4 pb-5">
-                    <Button variant="ghost" asChild>
-                      <Link href="/signin" onClick={() => setIsOpen(false)}>
-                        Sign In
-                      </Link>
-                    </Button>
                     <Button asChild>
                       <Link href="/signup" onClick={() => setIsOpen(false)}>
                         Sign Up
