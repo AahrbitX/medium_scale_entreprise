@@ -1,14 +1,6 @@
-export type product = {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  isOwnProduct: boolean;
-  category: string;
-  inStock: boolean;
-};
+import { productType } from "./types/product";
 
-export const products: product[] = [
+export const products: productType[] = [
   // Company manufactured products
   {
     id: "own-1",
@@ -19,6 +11,28 @@ export const products: product[] = [
     isOwnProduct: true,
     category: "Coffee",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "own-2",
@@ -29,6 +43,28 @@ export const products: product[] = [
     isOwnProduct: true,
     category: "Coffee",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "own-3",
@@ -39,6 +75,28 @@ export const products: product[] = [
     isOwnProduct: true,
     category: "Coffee",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
 
   // Resale products
@@ -50,6 +108,28 @@ export const products: product[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "rs-2",
@@ -59,6 +139,28 @@ export const products: product[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "rs-3",
@@ -68,6 +170,28 @@ export const products: product[] = [
     isOwnProduct: false,
     category: "Accessories",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "rs-4",
@@ -77,6 +201,28 @@ export const products: product[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "rs-5",
@@ -86,6 +232,28 @@ export const products: product[] = [
     isOwnProduct: false,
     category: "Accessories",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "rs-6",
@@ -95,6 +263,28 @@ export const products: product[] = [
     isOwnProduct: false,
     category: "Accessories",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
   {
     id: "rs-7",
@@ -104,5 +294,27 @@ export const products: product[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
+    productSizes: [
+      {
+        id: "1",
+        size: "10",
+        unit: "mm",
+      },
+      {
+        id: "2",
+        size: "20",
+        unit: "mm",
+      },
+      {
+        id: "3",
+        size: "30",
+        unit: "mm",
+      },
+      {
+        id: "4",
+        size: "40",
+        unit: "mm",
+      },
+    ],
   },
 ];
