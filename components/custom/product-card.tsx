@@ -1,9 +1,9 @@
-import { product } from "@/static/product";
 import { Button } from "@/components/ui/button";
+import { productType } from "@/static/types/product";
 import Link from "next/link";
 
 interface ProductCardProps {
-  product: product;
+  product: productType;
   isOwnProduct: boolean;
 }
 
@@ -11,6 +11,8 @@ export default function ProductCard({
   product,
   isOwnProduct,
 }: ProductCardProps) {
+  const price = product.price[0].price;
+
   return (
     <div className={`rounded-lg relative border p-4 bg-blue-200`}>
       <div className="relative aspect-square mb-4">
@@ -27,7 +29,7 @@ export default function ProductCard({
         <h3 className="font-semibold text-lg">{product.name}</h3>
         <p className="text-sm text-gray-500">{product.description}</p>
         <div className="flex items-center justify-between">
-          <p className="font-bold">${product.price}</p>
+          <p className="font-bold">${price}</p>
           <Button variant="outline" asChild>
             <Link href={`/store/${product.id}`}>View Product</Link>
           </Button>

@@ -40,8 +40,8 @@ function ProductColorSelect({ productColors }: ProductColorSelectProps) {
     }
   };
 
-  const defaultColorValue = productColors.find(() => {
-    return searchParams.get("color");
+  const defaultColorValue = productColors.find((color) => {
+    return color.slug === searchParams.get("color");
   });
 
   return (

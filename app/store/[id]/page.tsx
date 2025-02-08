@@ -31,7 +31,7 @@ async function ProductIdPage({ params, searchParams }: ProductIdPageProps) {
   const searchParamsObj = await searchParams;
 
   // getting the size from the search Params
-  const size = Array.isArray(searchParamsObj.size)
+  const sizeId = Array.isArray(searchParamsObj.size)
     ? searchParamsObj.size[0]
     : searchParamsObj.size;
 
@@ -41,50 +41,51 @@ async function ProductIdPage({ params, searchParams }: ProductIdPageProps) {
     notFound();
   }
 
-  const selectedSize = product.productSizes?.find((productSize) => {
-    return productSize.size === size;
-  });
-
-  const defaultSize = product.productSizes?.[0]?.size;
-  const finalSize = selectedSize ? selectedSize.size : defaultSize;
-
-  if (!finalSize) {
-    notFound();
-  }
+  const currProductPriceObj = product.price.find(
+    (price) => price.id.toString() === sizeId
+  );
 
   return (
-    <div className="mt-24 test-section flex items-center justify-evenly gap-12">
-      <div>
-        <ProductImage props={product.images} />
-      </div>
-      <div className=" flex flex-col items-center justify-around gap-12">
-        <div>
-          <h2 className="text-3xl text-primary font-semibold">
-            {product.name}
-          </h2>
-          <p className="text-muted-foreground mt-4">
-            Product size : {finalSize}
-          </p>
+    <>
+      <div className="mt-12 h-max grid md:grid-cols-[340px_1fr] md:grid-rows-1 grid-rows-2 gap-x-6 gap-y-4 pt-12 container px-2">
+        <div className="bg-[#f2f2f2] flex items-center justify-center py-8 px-3 rounded-2xl">
+          <ProductImage props={product.images} />
         </div>
-
-        <div className="flex w-full items-center justify-center gap-6">
-          {product.productSizes?.map((productSize) => (
-            <ProductSizeButton
-              size={productSize.size}
-              key={productSize.id}
-              selected={finalSize === productSize.size}
-            />
-          ))}
-        </div>
-        {product.images.length > 1 && (
+        <div className=" flex flex-col items-startjustify-around gap-12 bg-muted rounded-2xl py-8 px-4">
           <div>
-            <ProductColorSelect
-              productColors={getProductColorsFromImages(product.images)}
-            />
+            <h2 className="text-3xl text-primary font-semibold">
+              {product.name}
+            </h2>
+            <p className="text-muted-foreground mt-4">
+              Product size :{" "}
+              {`${currProductPriceObj?.size} ${currProductPriceObj?.unit}`}
+            </p>
           </div>
-        )}
+
+          <div className="space-x-6">
+            {product.price.map((productSize) => (
+              <ProductSizeButton
+                key={productSize.id}
+                productSizeObj={productSize}
+                selected={productSize.id.toString() === sizeId}
+              />
+            ))}
+          </div>
+
+          {product.images.length > 1 && (
+            <div className="flex items-center gap-4">
+              <h3 className="text-lg text-primary font-semibold">
+                Select Color
+              </h3>
+              <ProductColorSelect
+                productColors={getProductColorsFromImages(product.images)}
+              />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+      <article className="test-section my-6">Review and Comments</article>
+    </>
   );
 }
 

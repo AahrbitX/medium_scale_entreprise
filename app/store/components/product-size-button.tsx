@@ -1,21 +1,21 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { productPriceType } from "@/static/types/product";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useCallback } from "react";
 
 type ProductSizeButtonProps = {
-  size: string;
-  className?: string;
+  productSizeObj: Omit<productPriceType, "price">;
   selected: boolean;
-  unit?: "kg" | "g" | "l" | "ml" | string;
+  className?: string;
 };
 
 function ProductSizeButton({
-  size,
+  productSizeObj,
   className,
   selected,
-  unit = "kg",
 }: ProductSizeButtonProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -30,16 +30,21 @@ function ProductSizeButton({
   );
 
   return (
-    <button
-      onClick={() => router.push(`?${createQueryString("size", size)}`)}
+    <Button
+      variant={selected ? "default" : "outline"}
+      onClick={() =>
+        router.push(
+          `?${createQueryString("size", productSizeObj.id.toString())}`
+        )
+      }
       className={cn(
-        "px-4 py-3 rounded-2xl border border-sky-400 text-neutral-800 hover:bg-sky-300 hover:text-gray-700",
-        selected && "bg-sky-400 text-white",
+        "transition-colors duration-200",
+        selected && "",
         className
       )}
     >
-      {size} <span>{unit}</span>
-    </button>
+      {productSizeObj.size} <span>{productSizeObj.unit}</span>
+    </Button>
   );
 }
 

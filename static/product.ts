@@ -5,10 +5,14 @@ export const products: productType[] = [
   {
     id: "own-1",
     name: "Premium Handcrafted Coffee Blend",
-    price: 24.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
-      { blue: "/product/blue-ball.jpg" },
+      { "light-blue": "/product/blue-ball.jpg" },
       { red: "/product/red-ball.jpg" },
       { yellow: "/product/yellow-ball.jpg" },
       { orange: "/product/orange-ball.jpg" },
@@ -18,33 +22,15 @@ export const products: productType[] = [
     isOwnProduct: true,
     category: "Coffee",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "own-2",
     name: "Specialty Cold Brew Concentrate",
-    price: 18.99,
+    price: [
+      { id: 1, price: "9.99", size: "250", unit: "ml" },
+      { id: 2, price: "15.99", size: "500", unit: "ml" },
+      { id: 3, price: "20.99", size: "1", unit: "l" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -55,33 +41,15 @@ export const products: productType[] = [
     isOwnProduct: true,
     category: "Coffee",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "own-3",
     name: "Limited Edition Seasonal Blend",
-    price: 29.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -94,35 +62,17 @@ export const products: productType[] = [
     isOwnProduct: true,
     category: "Coffee",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
 
   // Resale products
   {
     id: "rs-1",
     name: "French Press Coffee Maker",
-    price: 34.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -134,33 +84,15 @@ export const products: productType[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "rs-2",
     name: "Electric Gooseneck Kettle",
-    price: 79.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -172,33 +104,15 @@ export const products: productType[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "rs-3",
     name: "Coffee Filter Papers",
-    price: 8.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -210,33 +124,15 @@ export const products: productType[] = [
     isOwnProduct: false,
     category: "Accessories",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "rs-4",
     name: "Coffee Bean Grinder",
-    price: 49.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -248,33 +144,15 @@ export const products: productType[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "rs-5",
     name: "Ceramic Coffee Mug Set",
-    price: 28.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -286,33 +164,15 @@ export const products: productType[] = [
     isOwnProduct: false,
     category: "Accessories",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "rs-6",
     name: "Coffee Storage Container",
-    price: 19.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       { default: "/product/teal-ball.jpg" },
       { blue: "/product/blue-ball.jpg" },
@@ -324,33 +184,15 @@ export const products: productType[] = [
     isOwnProduct: false,
     category: "Accessories",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
   {
     id: "rs-7",
     name: "Pour Over Coffee Dripper",
-    price: 24.99,
+    price: [
+      { id: 1, price: "12.99", size: "250", unit: "g" },
+      { id: 2, price: "24.99", size: "500", unit: "g" },
+      { id: 3, price: "39.99", size: "1", unit: "kg" },
+    ],
     images: [
       {
         default: "/product/teal-ball.jpg",
@@ -364,27 +206,5 @@ export const products: productType[] = [
     isOwnProduct: false,
     category: "Equipment",
     inStock: true,
-    productSizes: [
-      {
-        id: "1",
-        size: "10",
-        unit: "mm",
-      },
-      {
-        id: "2",
-        size: "20",
-        unit: "mm",
-      },
-      {
-        id: "3",
-        size: "30",
-        unit: "mm",
-      },
-      {
-        id: "4",
-        size: "40",
-        unit: "mm",
-      },
-    ],
   },
 ];
