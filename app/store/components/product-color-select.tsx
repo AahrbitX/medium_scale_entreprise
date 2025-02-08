@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import {
   Select,
@@ -19,7 +19,6 @@ type ProductColorSelectProps = {
 };
 
 function ProductColorSelect({ productColors }: ProductColorSelectProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const createQueryString = useCallback(
@@ -36,7 +35,13 @@ function ProductColorSelect({ productColors }: ProductColorSelectProps) {
       (productColor) => productColor.slug === slug
     );
     if (selectedColor) {
-      router.push(`?${createQueryString("color", selectedColor.color)}`);
+      // Update the URL without triggering a new request
+      const newQueryString = createQueryString("color", selectedColor.color);
+      window.history.replaceState(
+        {},
+        "",
+        `${window.location.pathname}?${newQueryString}`
+      );
     }
   };
 

@@ -2,14 +2,13 @@ import React from "react";
 import { notFound } from "next/navigation";
 
 import { products } from "@/static/product";
-import ProductSizeButton from "../components/product-size-button";
-import ProductColorSelect from "../components/product-color-select";
-import { getProductColorsFromImages } from "@/lib/getProductColorsFromImages";
 import ProductImage from "../components/product-image";
+import ProductColorSelect from "../components/product-color-select";
+import ProductSizeButtons from "../components/product-size-button";
+import { getProductColorsFromImages } from "@/lib/getProductColorsFromImages";
 
 interface ProductIdPageProps {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateStaticParams() {
@@ -26,14 +25,8 @@ export async function generateMetadata({ params }: ProductIdPageProps) {
   };
 }
 
-async function ProductIdPage({ params, searchParams }: ProductIdPageProps) {
+async function ProductIdPage({ params }: ProductIdPageProps) {
   const { id } = await params;
-  const searchParamsObj = await searchParams;
-
-  // getting the size from the search Params
-  const sizeId = Array.isArray(searchParamsObj.size)
-    ? searchParamsObj.size[0]
-    : searchParamsObj.size;
 
   const product = products.find((product) => product.id === id);
 
@@ -41,13 +34,9 @@ async function ProductIdPage({ params, searchParams }: ProductIdPageProps) {
     notFound();
   }
 
-  const currProductPriceObj = product.price.find(
-    (price) => price.id.toString() === sizeId
-  );
-
   return (
     <>
-      <div className="mt-12 h-max grid md:grid-cols-[340px_1fr] md:grid-rows-1 grid-rows-2 gap-x-6 gap-y-4 pt-12 container px-2">
+      <div className="mt-12 h-max grid md:grid-cols-[0.7fr_1fr] md:grid-rows-1 grid-rows-2 gap-x-6 gap-y-4 pt-12 container px-2">
         <div className="bg-[#f2f2f2] flex items-center justify-center py-8 px-3 rounded-2xl">
           <ProductImage props={product.images} />
         </div>
@@ -56,21 +45,9 @@ async function ProductIdPage({ params, searchParams }: ProductIdPageProps) {
             <h2 className="text-3xl text-primary font-semibold">
               {product.name}
             </h2>
-            <p className="text-muted-foreground mt-4">
-              Product size :{" "}
-              {`${currProductPriceObj?.size} ${currProductPriceObj?.unit}`}
-            </p>
           </div>
 
-          <div className="space-x-6">
-            {product.price.map((productSize) => (
-              <ProductSizeButton
-                key={productSize.id}
-                productSizeObj={productSize}
-                selected={productSize.id.toString() === sizeId}
-              />
-            ))}
-          </div>
+          <ProductSizeButtons product={product} />
 
           {product.images.length > 1 && (
             <div className="flex items-center gap-4">
