@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 
 import { products } from "@/static/product";
-import ProductImage from "../components/product-image";
-import ProductColorSelect from "../components/product-color-select";
-import ProductSizeButtons from "../components/product-size-button";
+import ProductImage from "./components/product-image";
+import ProductColorSelect from "./components/product-color-select";
+import ProductSizeButtons from "./components/product-size-button";
 import { getProductColorsFromImages } from "@/lib/getProductColorsFromImages";
 
 interface ProductIdPageProps {
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: ProductIdPageProps) {
   const { id } = await params;
   const product = products.find((product) => product.id === id);
   return {
-    title: product?.name + " | MSE" || "Product not found",
+    title: product?.name || "Product not found",
   };
 }
 
@@ -38,7 +38,11 @@ async function ProductIdPage({ params }: ProductIdPageProps) {
     <>
       <div className="mt-12 h-max grid md:grid-cols-[0.7fr_1fr] md:grid-rows-1 grid-rows-2 gap-x-6 gap-y-4 pt-12 container px-2">
         <div className="bg-[#f2f2f2] flex items-center justify-center py-8 px-3 rounded-2xl">
-          <ProductImage props={product.images} />
+          <Suspense
+            fallback={<div className="size-[200px] bg-neutral-600"></div>}
+          >
+            <ProductImage props={product.images} />
+          </Suspense>
         </div>
         <div className=" flex flex-col items-startjustify-around gap-12 bg-muted rounded-2xl py-8 px-4">
           <div>
@@ -47,16 +51,20 @@ async function ProductIdPage({ params }: ProductIdPageProps) {
             </h2>
           </div>
 
-          <ProductSizeButtons product={product} />
+          <Suspense fallback={<p>size buttons loading</p>}>
+            <ProductSizeButtons product={product} />
+          </Suspense>
 
           {product.images.length > 1 && (
             <div className="flex items-center gap-4">
               <h3 className="text-lg text-primary font-semibold">
                 Select Color
               </h3>
-              <ProductColorSelect
-                productColors={getProductColorsFromImages(product.images)}
-              />
+              <Suspense fallback={<p>colors select loading</p>}>
+                <ProductColorSelect
+                  productColors={getProductColorsFromImages(product.images)}
+                />
+              </Suspense>
             </div>
           )}
         </div>

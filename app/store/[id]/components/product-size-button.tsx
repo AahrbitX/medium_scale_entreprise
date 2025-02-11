@@ -18,6 +18,9 @@ export default function ProductSizeButtons({
   product: productType;
 }) {
   const searchParams = useSearchParams();
+  const searchSize = searchParams.get("size") || product.price[0].id.toString();
+
+  console.log(searchSize);
 
   return (
     <div className="space-x-6">
@@ -25,7 +28,7 @@ export default function ProductSizeButtons({
         <ProductSizeButton
           key={productSize.id}
           productSizeObj={productSize}
-          selected={productSize.id.toString() === searchParams.get("size")}
+          selected={productSize.id.toString() === searchSize}
         />
       ))}
     </div>

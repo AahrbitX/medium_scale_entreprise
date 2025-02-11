@@ -46,7 +46,7 @@ export function FilterDrawerDialog() {
               Filter Products at your preference.
             </DialogDescription>
           </DialogHeader>
-          <ProfileForm />
+          <ProfileForm isDesktop={isDesktop} />
         </DialogContent>
       </Dialog>
     );
@@ -66,7 +66,7 @@ export function FilterDrawerDialog() {
             Filter Products at your preference
           </DrawerDescription>
         </DrawerHeader>
-        <ProfileForm className="px-4" />
+        <ProfileForm isDesktop={isDesktop} className="px-4" />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
@@ -77,13 +77,19 @@ export function FilterDrawerDialog() {
   );
 }
 
-function ProfileForm({ className }: React.ComponentProps<"form">) {
+function ProfileForm({
+  className,
+  isDesktop,
+}: React.ComponentProps<"form"> & { isDesktop: boolean }) {
   return (
     <form className={cn("grid items-start gap-4", className)}>
-      <div className="grid gap-2">
-        <Label htmlFor="email">Product Name</Label>
-        <Input type="email" id="email" />
-      </div>
+      {!isDesktop && (
+        <div className="grid gap-2">
+          <Label htmlFor="name">Product Category</Label>
+          <Input type="text" id="name" />
+        </div>
+      )}
+
       <Button type="submit">Save changes</Button>
     </form>
   );

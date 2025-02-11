@@ -1,9 +1,9 @@
 import React from "react";
 import ProductCard from "@/components/custom/product-card";
-import { products } from "@/static/product";
 import ProductControls from "./controls";
+import { productType } from "@/static/types/product";
 
-function StoreProductsSection() {
+function StoreProductsSection({ products }: { products: productType[] }) {
   return (
     <>
       <ProductControls />

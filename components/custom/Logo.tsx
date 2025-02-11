@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { FC } from "react";
 
 interface LogoProps {
@@ -6,7 +7,11 @@ interface LogoProps {
 }
 
 const Logo: FC<LogoProps> = ({ logoText = "YourLogo", className }) => {
-  return <div className={`text-2xl font-bold ${className}`}>{logoText}</div>;
+  return (
+    <Link href="/" className={`text-2xl font-bold ${className}`}>
+      {logoText}
+    </Link>
+  );
 };
 
 export default Logo;
