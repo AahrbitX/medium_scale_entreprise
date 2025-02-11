@@ -4,7 +4,7 @@ import StoreProductsSection from "./products";
 
 function StorePage() {
   return (
-    <div className="mt-24 min-h-screen">
+    <div className="mt-20 min-h-screen">
       <StoreHeroSection />
       <StoreProductsSection />
     </div>
